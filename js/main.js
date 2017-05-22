@@ -15,15 +15,18 @@ app.config(['$routeProvider', function($routeProvider) {
 
 app.controller('HomeCtrl', function( $scope, $location, $http) {
     var search_type = 'album,artist';
-    var search_limit = '12';
+    var search_limit = 6;
     $scope.search_result = [];
-    $scope.search = function(search) {
-        var search_url = 'https://api.spotify.com/v1/search?q=' + search + '&type=' + search_type + '&limit=' + search_limit
+    $scope.search = function(key) {
+        console.log('search')
+        console.log(key)
+        var search_url = 'https://api.spotify.com/v1/search?q=' + key + '&type=' + search_type + '&limit=' + search_limit
         $http.get(search_url).then(function(response) {
             console.log(response.data);
-
         });
     }
+
+    // modal
     $scope.modalShown = false;
     $scope.toggleModal = function() {
         $scope.modalShown = !$scope.modalShown;
