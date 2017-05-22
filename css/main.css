@@ -34,5 +34,53 @@ body {
 	overflow: hidden;
 }
 #goto{
-
+	/*background: url(../images/Page 1@2x.png) no-repeat;*/
+	background: url(../images/btn1.png) no-repeat center center ;
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.images_header{
+	width: 40%;
+	margin: 0 auto;
+}
+.images_header >img{
+	width: 100%;
+}
+/*      searchContainer         */
+.searchContainer{
+	width: 100%;
+}
+.search_music{
+	background: rgba(56, 51, 51, 0.38);
+	padding: 15px;
+	text-align: center;
+	position: relative;
+	/* width: 35%; */
+	margin: 0 auto;
+}
+.search_music .search >input{
+	padding: 20px;
+	width: 100%;
+	border-radius: 66px;
+	border: none;
+}
+.search_music .search > button{
+	border: none;
+	padding: 12px 20px;
+	border-radius: 30px;
+	/* font-weight: bold; */
+	background: rgba(222, 47, 127, 0.94);
+	color: #fff;
+	position: absolute;
+	/* right: 50%; */
+	top: 8px;
+	right: -28px;
+	text-transform: uppercase;
+}
+.search{
+	width: 40%;
+	margin: 0 auto;
+	position: relative;
 }
