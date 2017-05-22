@@ -13,9 +13,9 @@ app.config(['$routeProvider', function($routeProvider) {
         .otherwise("/404", { templateUrl: "partials/404.html", controller: "ErrorCtrl" });
 }]);
 
-app.controller('HomeCtrl', function( /* $scope, $location, $http */ ) {
-    console.log("Page Controller reporting for duty.");
+app.controller('HomeCtrl', function( $scope, $location, $http) {
     
+
 });
 
 app.controller('ErrorCtrl', function( /* $scope, $location, $http */ ) {
