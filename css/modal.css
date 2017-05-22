@@ -1,4 +1,4 @@
-.ng-modal-overlay {
+.modal-overlay {
   /* A dark translucent div that covers the whole screen */
   position:absolute;
   z-index:9999;
@@ -9,7 +9,7 @@
   background-color:#000000;
   opacity: 0.8;
 }
-.ng-modal-dialog {
+.modal-dialog {
   /* A centered div above the overlay with a box shadow. */
   z-index:10000;
   position: absolute;
@@ -25,11 +25,11 @@
   background-color: #fff;
   box-shadow: 4px 4px 80px #000;
 }
-.ng-modal-dialog-content {
+.modal-dialog-content {
   padding:10px;
   text-align: left;
 }
-.ng-modal-close {
+.modal-close {
   position: absolute;
   top: 3px;
   right: 5px;
