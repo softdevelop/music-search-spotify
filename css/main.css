@@ -1,0 +1,10 @@
+/* Global Styles */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
