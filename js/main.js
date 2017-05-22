@@ -24,6 +24,10 @@ app.controller('HomeCtrl', function( $scope, $location, $http) {
 
         });
     }
+    $scope.modalShown = false;
+    $scope.toggleModal = function() {
+        $scope.modalShown = !$scope.modalShown;
+    };
 
 });
 
