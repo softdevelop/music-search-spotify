@@ -8,6 +8,7 @@ body {
     /*padding-top: 50px;
     padding-bottom: 20px;*/
     background: rgba(0, 0, 0, 0.76);
+    margin: 0;
 }
 .headerContainer{
 	width: 100%;
