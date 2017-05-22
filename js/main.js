@@ -14,7 +14,9 @@ app.config(['$routeProvider', function($routeProvider) {
 }]);
 
 app.controller('HomeCtrl', function( $scope, $location, $http) {
-    
+    $scope.search = function(search) {
+        console.log(search)
+    }
 
 });
 
