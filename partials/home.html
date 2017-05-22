@@ -1,32 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Music</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-	<!-- font-family: 'Raleway', sans-serif; -->
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
-</head>
-<body>
-	<div class="headerContainer">
-		<div class="container">
-			<div class="headerContent">
-				<a href="#" id="logo"></a>
-				<span>Powered by Spotify</span>
-				<div class="background_header">
-					<img src="../images/hero-img@2x.png">
-				</div>
-				<div id="goto"></div>
-			</div>
-		</div>
-	</div>
-	<div class="searchContainer">
-		<div class="container">
-			<div class="search_music">
-				<input type="text" name="search">
-				<button ng-click="search()" ng-model="keywork">Search</button>
-			</div>
-		</div>
-	</div>
-</body>
-</html>
+<div class="headerContainer">
+    <div class="container">
+        <div class="headerContent">
+            <a href="#" id="logo"></a>
+            <span>Powered by Spotify</span>
+            <div id="goto"></div>
+        </div>
+    </div>
+</div>
+<div class="searchContainer">
+    <div class="container">
+        <div class="search_music">
+            <input type="text" name="search">
+            <button ng-click="search()" ng-model="search">Search</button>
+        </div>
+    </div>
+</div>
