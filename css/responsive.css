@@ -5,8 +5,11 @@
 }
 @media (max-width: 1345px) {
 	.items{
-		width: 45%;
+		width: 40%;
 	}
+	.container {
+    	width: 100%;
+    }
 }
 @media (max-width: 900px) {
 	.content{

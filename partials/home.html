@@ -2,135 +2,143 @@
 	<div class="container">
 		<div class="search_music">
 			<div class="search">
-				<input type="text" name="search" ng-model="search_model" placeholder="Lorem ipsum">
-				<button ng-click="search(search_model)">Search</button>
+                <div>
+                    <input type="text" name="search" ng-model="search_model" placeholder="Search for artist or album title">
+                </div>
+				<button ng-click="search(search_model, 0, search_type)" ng-disabled="!search_model || disable_search_button">Search</button>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="contentContainer">
 	<div class="container">
-		<div class="content">
-			<div class="items">
-				<a href="" ng-click='toggleModal()'>
-					<div class="itmes_header">
-						<img src="https://i.scdn.co/image/6627becd6a441e3105bd08a477df5fa5a36b7fad">
-					</div>
-					<div class="items_content">
-						<h3>Albert King</h3>
-					</div>
-					<a class="imtes_hover" id="hover" ng-click="view()">
-						<img src="images/bg1.png">
-					</a>
-				</a>
-			</div>
-			<div class="items">
-				<a href="" ng-click='toggleModal()'>
-					<div class="itmes_header">
-						<img src="https://i.scdn.co/image/6627becd6a441e3105bd08a477df5fa5a36b7fad">
-					</div>
-					<div class="items_content">
-						<h3>Albert King</h3>
-					</div>
-					<a class="imtes_hover" id="hover" ng-click="view()">
-						<img src="images/bg1.png">
-					</a>
-				</a>
-			</div>
-			<div class="items">
-				<a href="" ng-click='toggleModal()'>
-					<div class="itmes_header">
-						<img src="https://i.scdn.co/image/6627becd6a441e3105bd08a477df5fa5a36b7fad">
-					</div>
-					<div class="items_content">
-						<h3>Albert King</h3>
-					</div>
-					<a class="imtes_hover" id="hover" ng-click="view()">
-						<img src="images/bg1.png">
-					</a>
-				</a>
-			</div>
-			<div class="items">
-				<a href="" ng-click='toggleModal()'>
-					<div class="itmes_header">
-						<img src="https://i.scdn.co/image/6627becd6a441e3105bd08a477df5fa5a36b7fad">
-					</div>
-					<div class="items_content">
-						<h3>Albert King</h3>
-					</div>
-					<a class="imtes_hover" id="hover" ng-click="view()">
-						<img src="images/bg1.png">
-					</a>
-				</a>
-			</div>
-			<div class="items">
-				<a href="" ng-click='toggleModal()'>
-					<div class="itmes_header">
-						<img src="https://i.scdn.co/image/6627becd6a441e3105bd08a477df5fa5a36b7fad">
-					</div>
-					<div class="items_content">
-						<h3>Albert King</h3>
-					</div>
-					<a class="imtes_hover" id="hover" ng-click="view()">
-						<img src="images/bg1.png">
-					</a>
-				</a>
-			</div>
-			<div class="items">
-				<a href="" ng-click='toggleModal()'>
-					<div class="itmes_header">
-						<img src="https://i.scdn.co/image/6627becd6a441e3105bd08a477df5fa5a36b7fad">
-					</div>
-					<div class="items_content">
-						<h3>Albert King</h3>
-					</div>
-					<a class="imtes_hover" id="hover" ng-click="view()">
-						<img src="images/bg1.png">
-					</a>
-				</a>
-			</div>
-			<div class="items">
-				<a href="" ng-click='toggleModal()'>
-					<div class="itmes_header">
-						<img src="https://i.scdn.co/image/6627becd6a441e3105bd08a477df5fa5a36b7fad">
-					</div>
-					<div class="items_content">
-						<h3>Albert King</h3>
-					</div>
-					<a class="imtes_hover" id="hover" ng-click="view()">
-						<img src="images/bg1.png">
-					</a>
-				</a>
-			</div>
-			<div class="items">
-				<a href="" ng-click='toggleModal()'>
-					<div class="itmes_header">
-						<img src="https://i.scdn.co/image/6627becd6a441e3105bd08a477df5fa5a36b7fad">
-					</div>
-					<div class="items_content">
-						<h3>Albert King</h3>
-					</div>
-					<a class="imtes_hover" id="hover" ng-click="view()">
-						<img src="images/bg1.png">
-					</a>
-				</a>
-			</div>
-		</div>
+        <div class="content">
+            <ul class="tab">
+                <li class="item"><a href="" ng-click="active_tab = true" ng-class="{'active' : active_tab}">Albums</a></li>
+                <li class="item"><a href="" ng-click="active_tab = false" ng-class="{'active' : !active_tab}">Artists</a></li>
+            </ul>
+            <div ng-if="active_tab">
+                <div ng-if="search_result_albums.length > 0">
+                    <div class="items" ng-repeat="item in search_result_albums" ng-mouseenter="show_img=true" ng-mouseleave="show_img=false">
+                        <a href="" ng-click="toggleModal(search_types[0], item.id)">
+                            <div class="itmes_header">
+                                <div class="show_first">
+                                    <img ng-class="{blur_img: show_img}"  ng-src="{{item.images[0].url}}">
+                                    <div class="shadow"></div>
+                                    <div class="hidden_first" ng-show="show_img">
+                                        <div>
+                                            <img src="images/bg1.png">
+                                            <div>View {{item.type}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="items_content">
+                                <h3>{{item.name}}</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="show_me" ng-if="albums_show_more">
+                        <button ng-click="showMove(search_model, search_offset_albums, search_type[0], albums_page)">Show me more!</button>
+                    </div>
+                </div>
+                <div class="result_none" ng-if="search_result_albums.length == 0">
+                    <i class="fa fa-search fa-5x" aria-hidden="true"></i>
+                    <h3>Your results will appear here</h3>
+                </div>
+            </div>
+            <div ng-if="!active_tab">
+                <div ng-if="search_result_artists.length > 0">
+                    <div class="items" ng-repeat="item in search_result_artists" ng-mouseenter="show_img=true" ng-mouseleave="show_img=false">
+                        <a href="" ng-click="toggleModal(search_types[1], item.id)">
+                            <div class="itmes_header">
+                                <div class="show_first">
+                                    <img ng-class="{blur_img: show_img}"  ng-src="{{item.images[0].url}}">
+
+                                    <div class="hidden_first" ng-show="show_img">
+                                        <div>
+                                            <img src="images/bg1.png">
+                                            <div>View {{item.type}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="items_content">
+                                <h3>{{item.name}}</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="show_me" ng-if="artists_show_more">
+                        <button ng-click="showMove(search_model, search_offset_artists, search_type[1], artists_page)">Show me more!</button>
+                    </div>
+                </div>
+                <div class="result_none" ng-if="search_result_artists.length == 0">
+                    <i class="fa fa-search fa-5x" aria-hidden="true"></i>
+                    <h3>Your results will appear here</h3>
+                </div>
+            </div>
+        </div>
+
+		<!-- <div class="content">
+            <div ng-if="search_result_albums.length > 0">
+                <h3 class="title">Albums</h3>
+                <div class="items" ng-repeat="item in search_result_albums" ng-mouseenter="show_img=true" ng-mouseleave="show_img=false">
+                    <a href="" ng-click="toggleModal(search_types[0], item.id)">
+                        <div class="itmes_header">
+                            <div class="show_first">
+                                <img ng-class="{blur_img: show_img}"  ng-src="{{item.images[0].url}}">
+                                <div class="shadow"></div>
+                                <div class="hidden_first" ng-show="show_img">
+                                    <div>
+                                        <img src="images/bg1.png">
+                                        <div>View {{item.type}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items_content">
+                            <h3>{{item.name}}</h3>
+                        </div>
+                    </a>
+                </div>
+                <div ng-if="albums_next" class="show_me">
+                    <button ng-click="showMove(search_model, search_offset_albums, search_type[0])">Show me more!</button>
+                </div>
+            </div>
+     	</div>
+
+        <div class="content">
+            <div ng-if="search_result_artists.length > 0">
+                <h3 class="title">Artists</h3>
+                <div class="items" ng-repeat="item in search_result_artists" ng-mouseenter="show_img=true" ng-mouseleave="show_img=false">
+                    <a href="" ng-click="toggleModal(search_types[1], item.id)">
+                        <div class="itmes_header">
+                            <div class="show_first">
+                                <img ng-class="{blur_img: show_img}"  ng-src="{{item.images[0].url}}">
+
+                                <div class="hidden_first" ng-show="show_img">
+                                    <div>
+                                        <img src="images/bg1.png">
+                                        <div>View {{item.type}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items_content">
+                            <h3>{{item.name}}</h3>
+                        </div>
+                    </a>
+                </div>
+                <div ng-if="artists_next" class="show_me">
+                    <button ng-click="showMove(search_model, search_offset_artists, search_type[1])">Show me more!</button>
+                </div>
+            </div>
+        </div> -->
 	</div>
 </div>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.items').hover(function(){
-			$(this).children('#hover').css('display','block');
-		},function(){
-			$(this).children('#hover').css('display','none');
-		});
-	});
-</script>
-
 <modal-dialog show='modalShown'>
-	<p>Modal Content Goes here<p>
-	</modal-dialog>
+    <div ng-include='"partials/detail.html"'></div>
+</modal-dialog>
 
 
