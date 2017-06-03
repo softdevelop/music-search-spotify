@@ -1,0 +1,87 @@
+.modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0.8;
+}
+.modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50%; /* Default */
+
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  box-shadow: 4px 4px 80px rgba(0,0,0,0.5);
+}
+.modal-dialog-content {
+  padding:0;
+  text-align: left;
+}
+.modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  color: #fff;
+  z-index: 99;
+}
+.modal{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal .title{
+    position: relative;
+    min-height: 200px;
+    background-size: 100%;
+}
+.modal .title .title_child{
+    color: #fff;
+    padding: 200px 0 20px 20px;
+    margin: 0;
+    background: rgba(0,0,0,0.2);
+    text-shadow: 2px 1px 5px rgba(0,0,0,0.7);
+}
+.modal .content_modal{
+  padding: 15px;
+}
+.modal .content_modal{
+  border-bottom: 1px solid #ddd;
+}
+.modal .content_modal h2{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+.modal .content_modal .content_track{
+  height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.modal .content_modal .title_track img{
+  width: 10%;
+}
+.modal .content_modal .title_track .name_track{
+  float: right;
+  width: 85%; 
+}
+.modal .content_modal .title_track{
+  padding: 10px
+}

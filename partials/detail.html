@@ -1,0 +1,15 @@
+<div class="title" ng-style="{'background-image':'url(' + detail.images[0].url + ')'}">
+	<h2 class="title_child">{{detail.name}}</h2>
+</div>
+<div class="content_modal">
+	<div ng-if="detail_track">
+		<h2>Tracks</h2>
+		<div class="content_track">
+			<div class="title_track" ng-repeat="(key, item) in detail_track.items">
+				<img ng-if="item.images" ng-src="{{item.images[0].url}}">
+				<div ng-if="item.images" class="name_track">{{key + 1}}. {{item.name}}</div>
+				<div ng-if="!item.images">{{key + 1}}. {{item.name}}</div>
+			</div>
+		</div>
+	</div>	
+</div>
